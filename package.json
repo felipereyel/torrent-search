@@ -1,0 +1,41 @@
+{
+  "name": "express-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "author": "",
+  "license": "ISC",
+  "prettier": {
+    "useTabs": true
+  },
+  "scripts": {
+    "eslint": "eslint src --fix ",
+    "prettier": "prettier  --write src/**/*.{js}",
+    "postinstall": "npm run build",
+    "build": "webpack",
+    "dev": "npm run build && node -r dotenv/config --inspect dist/index.js",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "express": "^4.17.1",
+    "prettier": "^1.19.1",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipereyel/express-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipereyel/express-template/issues"
+  },
+  "homepage": "https://github.com/felipereyel/express-template#readme",
+  "engines": {
+    "node": "14.x"
+  }
+}

@@ -30,13 +30,12 @@ app.get("/", async (req, res) => {
 	const torUrl = findHref(html1, href => href.startsWith("/torrent/"));
 	if (!torUrl) return res.status(404).send("Not found");
 
-	const html2 = await fetch(`${BASE_TORRENT_URL}${torUrl}`).then(res =>
-		res.text()
-	);
+	const source = `${BASE_TORRENT_URL}${torUrl}`;
+	const html2 = await fetch(source).then(res => res.text());
 	const [hash] = html2.match(/[a-z0-9]{40}/g);
 	const url = findHref(html2, href => href.endsWith(".torrent"));
 
-	res.json({ url, hash });
+	res.json({ url, hash, source });
 });
 
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
